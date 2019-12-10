@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: service_rc
+Implementation-Version: 2.0
+Built-By: Zee
+Implementation-Vendor-Id: com.jusfoun
+Build-Jdk: 1.8.0_201
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: com.jusfoun.app.Starter
+

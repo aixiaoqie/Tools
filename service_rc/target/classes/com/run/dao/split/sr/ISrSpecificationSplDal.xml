@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.run.dao.split.sr.ISrSpecificationSplDal" >
+
+  <resultMap id="BaseResultMap" type="com.run.ent.extend.sr.SrSpecification" >
+              <id column="id" property="id" jdbcType="VARCHAR" />
+              <result column="fwgybsf" property="fwgybsf" jdbcType="VARCHAR" />
+              <result column="fwgymc" property="fwgymc" jdbcType="VARCHAR" />
+              <result column="fwgyms" property="fwgyms" jdbcType="VARCHAR" />
+              <result column="sjfwzybzbh" property="sjfwzybzbh" jdbcType="VARCHAR" />
+              <result column="fwgygldw_gajgjgdm" property="fwgygldwGajgjgdm" jdbcType="VARCHAR" />
+              <result column="fwgy_bbh" property="fwgyBbh" jdbcType="VARCHAR" />
+              <result column="jkdyyy" property="jkdyyy" jdbcType="VARCHAR" />
+              <result column="jkdynr" property="jkdynr" jdbcType="VARCHAR" />
+              <result column="jkfhdm" property="jkfhdm" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+        id,fwgybsf,fwgymc,fwgyms,sjfwzybzbh,fwgygldw_gajgjgdm,fwgy_bbh,jkdyyy,jkdynr,jkfhdm
+  </sql>
+  
+  <insert id="add" parameterType="com.run.ent.extend.sr.SrSpecification" >
+    insert into sr_specification
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+          <if test="id != null and id != '' " >
+              id,
+          </if>
+      
+          <if test="fwgybsf != null and fwgybsf != '' " >
+              fwgybsf,
+          </if>
+      
+          <if test="fwgymc != null and fwgymc != '' " >
+              fwgymc,
+          </if>
+      
+          <if test="fwgyms != null and fwgyms != '' " >
+              fwgyms,
+          </if>
+      
+          <if test="sjfwzybzbh != null and sjfwzybzbh != '' " >
+              sjfwzybzbh,
+          </if>
+      
+          <if test="fwgygldwGajgjgdm != null and fwgygldwGajgjgdm != '' " >
+              fwgygldw_gajgjgdm,
+          </if>
+      
+          <if test="fwgyBbh != null and fwgyBbh != '' " >
+              fwgy_bbh,
+          </if>
+      
+          <if test="jkdyyy != null and jkdyyy != '' " >
+              jkdyyy,
+          </if>
+      
+          <if test="jkdynr != null and jkdynr != '' " >
+              jkdynr,
+          </if>
+      
+          <if test="jkfhdm != null and jkfhdm != '' " >
+              jkfhdm,
+          </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+          <if test="id != null and id != '' " >
+              #{id,jdbcType=VARCHAR},
+          </if>
+          <if test="fwgybsf != null and fwgybsf != '' " >
+              #{fwgybsf,jdbcType=VARCHAR},
+          </if>
+          <if test="fwgymc != null and fwgymc != '' " >
+              #{fwgymc,jdbcType=VARCHAR},
+          </if>
+          <if test="fwgyms != null and fwgyms != '' " >
+              #{fwgyms,jdbcType=VARCHAR},
+          </if>
+          <if test="sjfwzybzbh != null and sjfwzybzbh != '' " >
+              #{sjfwzybzbh,jdbcType=VARCHAR},
+          </if>
+          <if test="fwgygldwGajgjgdm != null and fwgygldwGajgjgdm != '' " >
+              #{fwgygldwGajgjgdm,jdbcType=VARCHAR},
+          </if>
+          <if test="fwgyBbh != null and fwgyBbh != '' " >
+              #{fwgyBbh,jdbcType=VARCHAR},
+          </if>
+          <if test="jkdyyy != null and jkdyyy != '' " >
+              #{jkdyyy,jdbcType=VARCHAR},
+          </if>
+          <if test="jkdynr != null and jkdynr != '' " >
+              #{jkdynr,jdbcType=VARCHAR},
+          </if>
+          <if test="jkfhdm != null and jkfhdm != '' " >
+              #{jkfhdm,jdbcType=VARCHAR},
+          </if>
+    </trim>
+  </insert>
+  
+ 
+    <insert id="addList" parameterType="list">
+    	insert into sr_specification
+    	<trim prefix="(" suffix=")">
+    		<include refid="Base_Column_List" />
+    	</trim>
+    	values
+    	<foreach collection="list" item="srSpecification" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+
+      
+          #{srSpecification.id,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.fwgybsf,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.fwgymc,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.fwgyms,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.sjfwzybzbh,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.fwgygldwGajgjgdm,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.fwgyBbh,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.jkdyyy,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.jkdynr,jdbcType=VARCHAR},
+
+      
+          #{srSpecification.jkfhdm,jdbcType=VARCHAR},
+
+
+        </trim>
+    	</foreach>
+    </insert>
+
+  
+  
+  <delete id="delete" parameterType="java.lang.String" >
+                 delete from sr_specification
+                 where  id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+	<delete id="deleteByIdList" parameterType="list">
+		delete from sr_specification
+		where id  in
+		<foreach collection="list" item="id " index="index" open="(" close=")" separator=",">
+			#{id }
+		</foreach>
+	</delete>
+  
+  <update id="update" parameterType="com.run.ent.extend.sr.SrSpecification" >
+    update sr_specification
+    <set >
+                  <if test="fwgybsf != null  and fwgybsf != '' " >
+                     fwgybsf = #{fwgybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwgymc != null  and fwgymc != '' " >
+                     fwgymc = #{fwgymc,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwgyms != null  and fwgyms != '' " >
+                     fwgyms = #{fwgyms,jdbcType=VARCHAR},
+                  </if>
+                  <if test="sjfwzybzbh != null  and sjfwzybzbh != '' " >
+                     sjfwzybzbh = #{sjfwzybzbh,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwgygldwGajgjgdm != null  and fwgygldwGajgjgdm != '' " >
+                     fwgygldw_gajgjgdm = #{fwgygldwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwgyBbh != null  and fwgyBbh != '' " >
+                     fwgy_bbh = #{fwgyBbh,jdbcType=VARCHAR},
+                  </if>
+                  <if test="jkdyyy != null  and jkdyyy != '' " >
+                     jkdyyy = #{jkdyyy,jdbcType=VARCHAR},
+                  </if>
+                  <if test="jkdynr != null  and jkdynr != '' " >
+                     jkdynr = #{jkdynr,jdbcType=VARCHAR},
+                  </if>
+                  <if test="jkfhdm != null  and jkfhdm != '' " >
+                     jkfhdm = #{jkfhdm,jdbcType=VARCHAR},
+                  </if>
+   </set>
+                 where  id = #{id,jdbcType=VARCHAR}
+</update>
+  
+<update id="updateList">
+    update sr_specification
+    <set >
+                  <if test="t.fwgybsf != null  and t.fwgybsf != '' " >
+                     fwgybsf = #{t.fwgybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwgymc != null  and t.fwgymc != '' " >
+                     fwgymc = #{t.fwgymc,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwgyms != null  and t.fwgyms != '' " >
+                     fwgyms = #{t.fwgyms,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.sjfwzybzbh != null  and t.sjfwzybzbh != '' " >
+                     sjfwzybzbh = #{t.sjfwzybzbh,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwgygldwGajgjgdm != null  and t.fwgygldwGajgjgdm != '' " >
+                     fwgygldw_gajgjgdm = #{t.fwgygldwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwgyBbh != null  and t.fwgyBbh != '' " >
+                     fwgy_bbh = #{t.fwgyBbh,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.jkdyyy != null  and t.jkdyyy != '' " >
+                     jkdyyy = #{t.jkdyyy,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.jkdynr != null  and t.jkdynr != '' " >
+                     jkdynr = #{t.jkdynr,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.jkfhdm != null  and t.jkfhdm != '' " >
+                     jkfhdm = #{t.jkfhdm,jdbcType=VARCHAR},
+                  </if>
+   </set>
+	
+		where id  in
+		<foreach collection="idList" item="id " index="index" open="(" close=")" separator=",">
+			#{id }
+		</foreach>
+</update>
+  
+  <select id="getModel" resultMap="BaseResultMap" parameterType="java.lang.String" >
+          select 
+                 <include refid="Base_Column_List" />
+          from sr_specification
+           where  id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getList" resultMap="BaseResultMap" parameterType="map" >
+          select
+                <include refid="Base_Column_List" />
+          from sr_specification where 1 = 1
+        <if test="EntityRelated.id != null and EntityRelated.id != '' ">
+			and id LIKE CONCAT('%',#{EntityRelated.id,jdbcType=VARCHAR},'%')
+		</if>
+
+		<if test="EntityRelated.fwgyBbh != null and EntityRelated.fwgyBbh != '' ">
+ 				and  fwgy_bbh LIKE CONCAT('%',#{EntityRelated.fwgyBbh,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwgybsf != null and EntityRelated.fwgybsf != '' ">
+ 				and  fwgybsf LIKE CONCAT('%',#{EntityRelated.fwgybsf,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwgygldwGajgjgdm != null and EntityRelated.fwgygldwGajgjgdm != '' ">
+ 				and  fwgygldw_gajgjgdm LIKE CONCAT('%',#{EntityRelated.fwgygldwGajgjgdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwgymc != null and EntityRelated.fwgymc != '' ">
+ 				and  fwgymc LIKE CONCAT('%',#{EntityRelated.fwgymc,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwgyms != null and EntityRelated.fwgyms != '' ">
+ 				and  fwgyms LIKE CONCAT('%',#{EntityRelated.fwgyms,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.id != null and EntityRelated.id != '' ">
+				and id = #{EntityRelated.id,jdbcType=VARCHAR} 
+		</if>
+		<if test="EntityRelated.jkdynr != null and EntityRelated.jkdynr != '' ">
+ 				and  jkdynr LIKE CONCAT('%',#{EntityRelated.jkdynr,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.jkdyyy != null and EntityRelated.jkdyyy != '' ">
+ 				and  jkdyyy LIKE CONCAT('%',#{EntityRelated.jkdyyy,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.jkfhdm != null and EntityRelated.jkfhdm != '' ">
+ 				and  jkfhdm LIKE CONCAT('%',#{EntityRelated.jkfhdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.sjfwzybzbh != null and EntityRelated.sjfwzybzbh != '' ">
+ 				and  sjfwzybzbh LIKE CONCAT('%',#{EntityRelated.sjfwzybzbh,jdbcType=VARCHAR},'%') 
+		</if>
+
+
+		<if test="OrderList != null and OrderList!=null">
+			order by
+			<foreach collection="OrderList" item="Order" index="index" separator=",">
+				${Order.columnName}
+				<if test="Order.isASC">
+					ASC
+				</if>
+				<if test="!Order.isASC">
+					DESC
+				</if>
+			</foreach>
+		</if>
+  </select>
+  
+	<select id="getListBySQL" resultType="java.util.HashMap" parameterType="String">
+		<if test="value!=null and value!=''">
+			${value}
+		</if>
+	</select>
+
+  <cache />
+</mapper>

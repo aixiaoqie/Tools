@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.run.dao.split.sr.ISrResourceSplDal" >
+
+  <resultMap id="BaseResultMap" type="com.run.ent.extend.sr.SrResource" >
+              <id column="id" property="id" jdbcType="VARCHAR" />
+              <result column="fwzybsf" property="fwzybsf" jdbcType="VARCHAR" />
+              <result column="fwgybsf" property="fwgybsf" jdbcType="VARCHAR" />
+              <result column="fwzymc" property="fwzymc" jdbcType="VARCHAR" />
+              <result column="fwzyms" property="fwzyms" jdbcType="VARCHAR" />
+              <result column="fwzysqdw_jgdm" property="fwzysqdwJgdm" jdbcType="VARCHAR" />
+              <result column="fwzygldw_gajgjgdm" property="fwzygldwGajgjgdm" jdbcType="VARCHAR" />
+              <result column="tgfwzyd_yyzybs" property="tgfwzydYyzybs" jdbcType="VARCHAR" />
+              <result column="fwzyztdm" property="fwzyztdm" jdbcType="VARCHAR" />
+              <result column="zyfw_pdbs" property="zyfwPdbs" jdbcType="VARCHAR" />
+              <result column="fwtgfsdm" property="fwtgfsdm" jdbcType="VARCHAR" />
+              <result column="fwzj_yyzybsf" property="fwzjYyzybsf" jdbcType="VARCHAR" />
+              <result column="fwfwdz" property="fwfwdz" jdbcType="VARCHAR" />
+              <result column="fwlxdm" property="fwlxdm" jdbcType="VARCHAR" />
+              <result column="fwzy_bbh" property="fwzyBbh" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+        id,fwzybsf,fwgybsf,fwzymc,fwzyms,fwzysqdw_jgdm,fwzygldw_gajgjgdm,tgfwzyd_yyzybs,fwzyztdm,zyfw_pdbs,fwtgfsdm,fwzj_yyzybsf,fwfwdz,fwlxdm,fwzy_bbh
+  </sql>
+  
+  <insert id="add" parameterType="com.run.ent.extend.sr.SrResource" >
+    insert into sr_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+          <if test="id != null and id != '' " >
+              id,
+          </if>
+      
+          <if test="fwzybsf != null and fwzybsf != '' " >
+              fwzybsf,
+          </if>
+      
+          <if test="fwgybsf != null and fwgybsf != '' " >
+              fwgybsf,
+          </if>
+      
+          <if test="fwzymc != null and fwzymc != '' " >
+              fwzymc,
+          </if>
+      
+          <if test="fwzyms != null and fwzyms != '' " >
+              fwzyms,
+          </if>
+      
+          <if test="fwzysqdwJgdm != null and fwzysqdwJgdm != '' " >
+              fwzysqdw_jgdm,
+          </if>
+      
+          <if test="fwzygldwGajgjgdm != null and fwzygldwGajgjgdm != '' " >
+              fwzygldw_gajgjgdm,
+          </if>
+      
+          <if test="tgfwzydYyzybs != null and tgfwzydYyzybs != '' " >
+              tgfwzyd_yyzybs,
+          </if>
+      
+          <if test="fwzyztdm != null and fwzyztdm != '' " >
+              fwzyztdm,
+          </if>
+      
+          <if test="zyfwPdbs != null and zyfwPdbs != '' " >
+              zyfw_pdbs,
+          </if>
+      
+          <if test="fwtgfsdm != null and fwtgfsdm != '' " >
+              fwtgfsdm,
+          </if>
+      
+          <if test="fwzjYyzybsf != null and fwzjYyzybsf != '' " >
+              fwzj_yyzybsf,
+          </if>
+      
+          <if test="fwfwdz != null and fwfwdz != '' " >
+              fwfwdz,
+          </if>
+      
+          <if test="fwlxdm != null and fwlxdm != '' " >
+              fwlxdm,
+          </if>
+      
+          <if test="fwzyBbh != null and fwzyBbh != '' " >
+              fwzy_bbh,
+          </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+          <if test="id != null and id != '' " >
+              #{id,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzybsf != null and fwzybsf != '' " >
+              #{fwzybsf,jdbcType=VARCHAR},
+          </if>
+          <if test="fwgybsf != null and fwgybsf != '' " >
+              #{fwgybsf,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzymc != null and fwzymc != '' " >
+              #{fwzymc,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzyms != null and fwzyms != '' " >
+              #{fwzyms,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzysqdwJgdm != null and fwzysqdwJgdm != '' " >
+              #{fwzysqdwJgdm,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzygldwGajgjgdm != null and fwzygldwGajgjgdm != '' " >
+              #{fwzygldwGajgjgdm,jdbcType=VARCHAR},
+          </if>
+          <if test="tgfwzydYyzybs != null and tgfwzydYyzybs != '' " >
+              #{tgfwzydYyzybs,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzyztdm != null and fwzyztdm != '' " >
+              #{fwzyztdm,jdbcType=VARCHAR},
+          </if>
+          <if test="zyfwPdbs != null and zyfwPdbs != '' " >
+              #{zyfwPdbs,jdbcType=VARCHAR},
+          </if>
+          <if test="fwtgfsdm != null and fwtgfsdm != '' " >
+              #{fwtgfsdm,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzjYyzybsf != null and fwzjYyzybsf != '' " >
+              #{fwzjYyzybsf,jdbcType=VARCHAR},
+          </if>
+          <if test="fwfwdz != null and fwfwdz != '' " >
+              #{fwfwdz,jdbcType=VARCHAR},
+          </if>
+          <if test="fwlxdm != null and fwlxdm != '' " >
+              #{fwlxdm,jdbcType=VARCHAR},
+          </if>
+          <if test="fwzyBbh != null and fwzyBbh != '' " >
+              #{fwzyBbh,jdbcType=VARCHAR},
+          </if>
+    </trim>
+  </insert>
+  
+ 
+    <insert id="addList" parameterType="list">
+    	insert into sr_resource
+    	<trim prefix="(" suffix=")">
+    		<include refid="Base_Column_List" />
+    	</trim>
+    	values
+    	<foreach collection="list" item="srResource" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+
+      
+          #{srResource.id,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzybsf,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwgybsf,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzymc,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzyms,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzysqdwJgdm,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzygldwGajgjgdm,jdbcType=VARCHAR},
+
+      
+          #{srResource.tgfwzydYyzybs,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzyztdm,jdbcType=VARCHAR},
+
+      
+          #{srResource.zyfwPdbs,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwtgfsdm,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzjYyzybsf,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwfwdz,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwlxdm,jdbcType=VARCHAR},
+
+      
+          #{srResource.fwzyBbh,jdbcType=VARCHAR},
+
+
+        </trim>
+    	</foreach>
+    </insert>
+
+  
+  
+  <delete id="delete" parameterType="java.lang.String" >
+                 delete from sr_resource
+                 where  id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+	<delete id="deleteByIdList" parameterType="list">
+		delete from sr_resource
+		where id  in
+		<foreach collection="list" item="id " index="index" open="(" close=")" separator=",">
+			#{id }
+		</foreach>
+	</delete>
+  
+  <update id="update" parameterType="com.run.ent.extend.sr.SrResource" >
+    update sr_resource
+    <set >
+                  <if test="fwzybsf != null  and fwzybsf != '' " >
+                     fwzybsf = #{fwzybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwgybsf != null  and fwgybsf != '' " >
+                     fwgybsf = #{fwgybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzymc != null  and fwzymc != '' " >
+                     fwzymc = #{fwzymc,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzyms != null  and fwzyms != '' " >
+                     fwzyms = #{fwzyms,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzysqdwJgdm != null  and fwzysqdwJgdm != '' " >
+                     fwzysqdw_jgdm = #{fwzysqdwJgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzygldwGajgjgdm != null  and fwzygldwGajgjgdm != '' " >
+                     fwzygldw_gajgjgdm = #{fwzygldwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="tgfwzydYyzybs != null  and tgfwzydYyzybs != '' " >
+                     tgfwzyd_yyzybs = #{tgfwzydYyzybs,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzyztdm != null  and fwzyztdm != '' " >
+                     fwzyztdm = #{fwzyztdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="zyfwPdbs != null  and zyfwPdbs != '' " >
+                     zyfw_pdbs = #{zyfwPdbs,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwtgfsdm != null  and fwtgfsdm != '' " >
+                     fwtgfsdm = #{fwtgfsdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzjYyzybsf != null  and fwzjYyzybsf != '' " >
+                     fwzj_yyzybsf = #{fwzjYyzybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwfwdz != null  and fwfwdz != '' " >
+                     fwfwdz = #{fwfwdz,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwlxdm != null  and fwlxdm != '' " >
+                     fwlxdm = #{fwlxdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="fwzyBbh != null  and fwzyBbh != '' " >
+                     fwzy_bbh = #{fwzyBbh,jdbcType=VARCHAR},
+                  </if>
+   </set>
+                 where  id = #{id,jdbcType=VARCHAR}
+</update>
+  
+<update id="updateList">
+    update sr_resource
+    <set >
+                  <if test="t.fwzybsf != null  and t.fwzybsf != '' " >
+                     fwzybsf = #{t.fwzybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwgybsf != null  and t.fwgybsf != '' " >
+                     fwgybsf = #{t.fwgybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzymc != null  and t.fwzymc != '' " >
+                     fwzymc = #{t.fwzymc,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzyms != null  and t.fwzyms != '' " >
+                     fwzyms = #{t.fwzyms,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzysqdwJgdm != null  and t.fwzysqdwJgdm != '' " >
+                     fwzysqdw_jgdm = #{t.fwzysqdwJgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzygldwGajgjgdm != null  and t.fwzygldwGajgjgdm != '' " >
+                     fwzygldw_gajgjgdm = #{t.fwzygldwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.tgfwzydYyzybs != null  and t.tgfwzydYyzybs != '' " >
+                     tgfwzyd_yyzybs = #{t.tgfwzydYyzybs,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzyztdm != null  and t.fwzyztdm != '' " >
+                     fwzyztdm = #{t.fwzyztdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.zyfwPdbs != null  and t.zyfwPdbs != '' " >
+                     zyfw_pdbs = #{t.zyfwPdbs,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwtgfsdm != null  and t.fwtgfsdm != '' " >
+                     fwtgfsdm = #{t.fwtgfsdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzjYyzybsf != null  and t.fwzjYyzybsf != '' " >
+                     fwzj_yyzybsf = #{t.fwzjYyzybsf,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwfwdz != null  and t.fwfwdz != '' " >
+                     fwfwdz = #{t.fwfwdz,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwlxdm != null  and t.fwlxdm != '' " >
+                     fwlxdm = #{t.fwlxdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.fwzyBbh != null  and t.fwzyBbh != '' " >
+                     fwzy_bbh = #{t.fwzyBbh,jdbcType=VARCHAR},
+                  </if>
+   </set>
+	
+		where id  in
+		<foreach collection="idList" item="id " index="index" open="(" close=")" separator=",">
+			#{id }
+		</foreach>
+</update>
+  
+  <select id="getModel" resultMap="BaseResultMap" parameterType="java.lang.String" >
+          select 
+                 <include refid="Base_Column_List" />
+          from sr_resource
+           where  id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getList" resultMap="BaseResultMap" parameterType="map" >
+          select
+                <include refid="Base_Column_List" />
+          from sr_resource where 1 = 1
+        <if test="EntityRelated.id != null and EntityRelated.id != '' ">
+			and id LIKE CONCAT('%',#{EntityRelated.id,jdbcType=VARCHAR},'%')
+		</if>
+
+		<if test="EntityRelated.fwfwdz != null and EntityRelated.fwfwdz != '' ">
+ 				and  fwfwdz LIKE CONCAT('%',#{EntityRelated.fwfwdz,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwgybsf != null and EntityRelated.fwgybsf != '' ">
+ 				and  fwgybsf LIKE CONCAT('%',#{EntityRelated.fwgybsf,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwlxdm != null and EntityRelated.fwlxdm != '' ">
+ 				and  fwlxdm LIKE CONCAT('%',#{EntityRelated.fwlxdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwtgfsdm != null and EntityRelated.fwtgfsdm != '' ">
+ 				and  fwtgfsdm LIKE CONCAT('%',#{EntityRelated.fwtgfsdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzjYyzybsf != null and EntityRelated.fwzjYyzybsf != '' ">
+ 				and  fwzj_yyzybsf LIKE CONCAT('%',#{EntityRelated.fwzjYyzybsf,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzyBbh != null and EntityRelated.fwzyBbh != '' ">
+ 				and  fwzy_bbh LIKE CONCAT('%',#{EntityRelated.fwzyBbh,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzybsf != null and EntityRelated.fwzybsf != '' ">
+ 				and  fwzybsf LIKE CONCAT('%',#{EntityRelated.fwzybsf,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzygldwGajgjgdm != null and EntityRelated.fwzygldwGajgjgdm != '' ">
+ 				and  fwzygldw_gajgjgdm LIKE CONCAT('%',#{EntityRelated.fwzygldwGajgjgdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzymc != null and EntityRelated.fwzymc != '' ">
+ 				and  fwzymc LIKE CONCAT('%',#{EntityRelated.fwzymc,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzyms != null and EntityRelated.fwzyms != '' ">
+ 				and  fwzyms LIKE CONCAT('%',#{EntityRelated.fwzyms,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzysqdwJgdm != null and EntityRelated.fwzysqdwJgdm != '' ">
+ 				and  fwzysqdw_jgdm LIKE CONCAT('%',#{EntityRelated.fwzysqdwJgdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.fwzyztdm != null and EntityRelated.fwzyztdm != '' ">
+ 				and  fwzyztdm LIKE CONCAT('%',#{EntityRelated.fwzyztdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.id != null and EntityRelated.id != '' ">
+				and id = #{EntityRelated.id,jdbcType=VARCHAR} 
+		</if>
+		<if test="EntityRelated.tgfwzydYyzybs != null and EntityRelated.tgfwzydYyzybs != '' ">
+ 				and  tgfwzyd_yyzybs LIKE CONCAT('%',#{EntityRelated.tgfwzydYyzybs,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.zyfwPdbs != null and EntityRelated.zyfwPdbs != '' ">
+ 				and  zyfw_pdbs LIKE CONCAT('%',#{EntityRelated.zyfwPdbs,jdbcType=VARCHAR},'%') 
+		</if>
+
+
+		<if test="OrderList != null and OrderList!=null">
+			order by
+			<foreach collection="OrderList" item="Order" index="index" separator=",">
+				${Order.columnName}
+				<if test="Order.isASC">
+					ASC
+				</if>
+				<if test="!Order.isASC">
+					DESC
+				</if>
+			</foreach>
+		</if>
+  </select>
+  
+	<select id="getListBySQL" resultType="java.util.HashMap" parameterType="String">
+		<if test="value!=null and value!=''">
+			${value}
+		</if>
+	</select>
+
+  <cache />
+</mapper>

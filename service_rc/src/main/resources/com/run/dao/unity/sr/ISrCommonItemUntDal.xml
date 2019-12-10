@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.run.dao.unity.sr.ISrCommonItemUntDal" >
+
+  <resultMap id="BaseResultMap" type="com.run.ent.extend.sr.SrCommonItem" >
+              <id column="id" property="id" jdbcType="VARCHAR" />
+              <result column="xxdjdw_gajgjgdm" property="xxdjdwGajgjgdm" jdbcType="VARCHAR" />
+              <result column="xxdjry_xm" property="xxdjryXm" jdbcType="VARCHAR" />
+              <result column="xxdjry_gmsfhm" property="xxdjryGmsfhm" jdbcType="VARCHAR" />
+              <result column="xxdj_sj" property="xxdjSj" jdbcType="TIMESTAMP" />
+              <result column="xxczdw_gajgjgdm" property="xxczdwGajgjgdm" jdbcType="VARCHAR" />
+              <result column="xxczry_xm" property="xxczryXm" jdbcType="VARCHAR" />
+              <result column="xxczry_gmsfhm" property="xxczryGmsfhm" jdbcType="VARCHAR" />
+              <result column="xxcz_sj" property="xxczSj" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+        id,xxdjdw_gajgjgdm,xxdjry_xm,xxdjry_gmsfhm,xxdj_sj,xxczdw_gajgjgdm,xxczry_xm,xxczry_gmsfhm,xxcz_sj
+  </sql>
+  
+  <insert id="add" parameterType="com.run.ent.extend.sr.SrCommonItem" >
+    insert into sr_common_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+          <if test="id != null and id != '' " >
+              id,
+          </if>
+      
+          <if test="xxdjdwGajgjgdm != null and xxdjdwGajgjgdm != '' " >
+              xxdjdw_gajgjgdm,
+          </if>
+      
+          <if test="xxdjryXm != null and xxdjryXm != '' " >
+              xxdjry_xm,
+          </if>
+      
+          <if test="xxdjryGmsfhm != null and xxdjryGmsfhm != '' " >
+              xxdjry_gmsfhm,
+          </if>
+      
+          <if test="xxdjSj != null " >
+              xxdj_sj,
+          </if>
+          <if test="xxczdwGajgjgdm != null and xxczdwGajgjgdm != '' " >
+              xxczdw_gajgjgdm,
+          </if>
+      
+          <if test="xxczryXm != null and xxczryXm != '' " >
+              xxczry_xm,
+          </if>
+      
+          <if test="xxczryGmsfhm != null and xxczryGmsfhm != '' " >
+              xxczry_gmsfhm,
+          </if>
+      
+          <if test="xxczSj != null " >
+              xxcz_sj,
+          </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+          <if test="id != null and id != '' " >
+              #{id,jdbcType=VARCHAR},
+          </if>
+          <if test="xxdjdwGajgjgdm != null and xxdjdwGajgjgdm != '' " >
+              #{xxdjdwGajgjgdm,jdbcType=VARCHAR},
+          </if>
+          <if test="xxdjryXm != null and xxdjryXm != '' " >
+              #{xxdjryXm,jdbcType=VARCHAR},
+          </if>
+          <if test="xxdjryGmsfhm != null and xxdjryGmsfhm != '' " >
+              #{xxdjryGmsfhm,jdbcType=VARCHAR},
+          </if>
+          <if test="xxdjSj != null " >
+              #{xxdjSj,jdbcType=TIMESTAMP},
+          </if>
+          <if test="xxczdwGajgjgdm != null and xxczdwGajgjgdm != '' " >
+              #{xxczdwGajgjgdm,jdbcType=VARCHAR},
+          </if>
+          <if test="xxczryXm != null and xxczryXm != '' " >
+              #{xxczryXm,jdbcType=VARCHAR},
+          </if>
+          <if test="xxczryGmsfhm != null and xxczryGmsfhm != '' " >
+              #{xxczryGmsfhm,jdbcType=VARCHAR},
+          </if>
+          <if test="xxczSj != null " >
+              #{xxczSj,jdbcType=TIMESTAMP},
+          </if>
+    </trim>
+  </insert>
+  
+ 
+    <insert id="addList" parameterType="list">
+    	insert into sr_common_item
+    	<trim prefix="(" suffix=")">
+    		<include refid="Base_Column_List" />
+    	</trim>
+    	values
+    	<foreach collection="list" item="srCommonItem" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+
+      
+          #{srCommonItem.id,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxdjdwGajgjgdm,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxdjryXm,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxdjryGmsfhm,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxdjSj,jdbcType=TIMESTAMP},
+
+      
+          #{srCommonItem.xxczdwGajgjgdm,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxczryXm,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxczryGmsfhm,jdbcType=VARCHAR},
+
+      
+          #{srCommonItem.xxczSj,jdbcType=TIMESTAMP},
+
+
+        </trim>
+    	</foreach>
+    </insert>
+
+  
+  
+  <delete id="delete" parameterType="java.lang.String" >
+                 delete from sr_common_item
+                 where  id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+	<delete id="deleteByIdList" parameterType="list">
+		delete from sr_common_item
+		where id  in
+		<foreach collection="list" item="id " index="index" open="(" close=")" separator=",">
+			#{id }
+		</foreach>
+	</delete>
+  
+  <update id="update" parameterType="com.run.ent.extend.sr.SrCommonItem" >
+    update sr_common_item
+    <set >
+                  <if test="xxdjdwGajgjgdm != null  and xxdjdwGajgjgdm != '' " >
+                     xxdjdw_gajgjgdm = #{xxdjdwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="xxdjryXm != null  and xxdjryXm != '' " >
+                     xxdjry_xm = #{xxdjryXm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="xxdjryGmsfhm != null  and xxdjryGmsfhm != '' " >
+                     xxdjry_gmsfhm = #{xxdjryGmsfhm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="xxdjSj != null ">
+                     xxdj_sj = #{xxdjSj,jdbcType=TIMESTAMP},
+                  </if>
+                  <if test="xxczdwGajgjgdm != null  and xxczdwGajgjgdm != '' " >
+                     xxczdw_gajgjgdm = #{xxczdwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="xxczryXm != null  and xxczryXm != '' " >
+                     xxczry_xm = #{xxczryXm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="xxczryGmsfhm != null  and xxczryGmsfhm != '' " >
+                     xxczry_gmsfhm = #{xxczryGmsfhm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="xxczSj != null ">
+                     xxcz_sj = #{xxczSj,jdbcType=TIMESTAMP},
+                  </if>
+   </set>
+                 where  id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+<update id="updateList">
+    update sr_common_item
+    <set >
+                  <if test="t.xxdjdwGajgjgdm != null  and t.xxdjdwGajgjgdm != '' " >
+                     xxdjdw_gajgjgdm = #{t.xxdjdwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxdjryXm != null  and t.xxdjryXm != '' " >
+                     xxdjry_xm = #{t.xxdjryXm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxdjryGmsfhm != null  and t.xxdjryGmsfhm != '' " >
+                     xxdjry_gmsfhm = #{t.xxdjryGmsfhm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxdjSj != null ">
+                     xxdj_sj = #{t.xxdjSj,jdbcType=TIMESTAMP},
+                  </if>
+                  <if test="t.xxczdwGajgjgdm != null  and t.xxczdwGajgjgdm != '' " >
+                     xxczdw_gajgjgdm = #{t.xxczdwGajgjgdm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxczryXm != null  and t.xxczryXm != '' " >
+                     xxczry_xm = #{t.xxczryXm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxczryGmsfhm != null  and t.xxczryGmsfhm != '' " >
+                     xxczry_gmsfhm = #{t.xxczryGmsfhm,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxczSj != null ">
+                     xxcz_sj = #{t.xxczSj,jdbcType=TIMESTAMP},
+                  </if>
+   </set>
+	
+		where id  in
+		<foreach collection="idList" item="id " index="index" open="(" close=")" separator=",">
+			#{id }
+		</foreach>
+   
+  </update>
+  
+<update id="updateListWithDff"  parameterType="list">
+    update sr_common_item
+		<trim prefix="set" suffixOverrides=",">
+         <trim prefix="xxdjdw_gajgjgdm =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxdjdwGajgjgdm != null and srCommonItem.xxdjdwGajgjgdm  != '' " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxdjdwGajgjgdm,jdbcType=VARCHAR}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxdjry_xm =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxdjryXm != null and srCommonItem.xxdjryXm  != '' " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxdjryXm,jdbcType=VARCHAR}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxdjry_gmsfhm =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxdjryGmsfhm != null and srCommonItem.xxdjryGmsfhm  != '' " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxdjryGmsfhm,jdbcType=VARCHAR}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxdj_sj =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxdjSj != null " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxdjSj,jdbcType=TIMESTAMP}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxczdw_gajgjgdm =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxczdwGajgjgdm != null and srCommonItem.xxczdwGajgjgdm  != '' " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxczdwGajgjgdm,jdbcType=VARCHAR}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxczry_xm =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxczryXm != null and srCommonItem.xxczryXm  != '' " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxczryXm,jdbcType=VARCHAR}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxczry_gmsfhm =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxczryGmsfhm != null and srCommonItem.xxczryGmsfhm  != '' " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxczryGmsfhm,jdbcType=VARCHAR}
+                  </if>
+              </foreach>
+         </trim>
+         <trim prefix="xxcz_sj =case" suffix="end,">
+              <foreach collection="list" item="srCommonItem" index="index">
+                  <if test="srCommonItem.xxczSj != null " >
+                     when id=#{srCommonItem.id} then #{srCommonItem.xxczSj,jdbcType=TIMESTAMP}
+                  </if>
+              </foreach>
+         </trim>
+    </trim>
+    where id in
+		<foreach collection="list" item="gpModule" index="index" open="(" close=")" separator=",">
+			#{srCommonItem.id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+
+  
+  
+  <insert id="updateListWithDffOrAdd" useGeneratedKeys="true" keyProperty="id" parameterType="list">
+    replace into sr_common_item
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+              id ,
+          <if test="xxdjdwGajgjgdm  != null and xxdjdwGajgjgdm  != '' " >
+              xxdjdw_gajgjgdm,
+          </if>
+          <if test="xxdjryXm  != null and xxdjryXm  != '' " >
+              xxdjry_xm,
+          </if>
+          <if test="xxdjryGmsfhm  != null and xxdjryGmsfhm  != '' " >
+              xxdjry_gmsfhm,
+          </if>
+          <if test="xxdjSj  != null " >
+              xxdj_sj,
+          </if>
+          <if test="xxczdwGajgjgdm  != null and xxczdwGajgjgdm  != '' " >
+              xxczdw_gajgjgdm,
+          </if>
+          <if test="xxczryXm  != null and xxczryXm  != '' " >
+              xxczry_xm,
+          </if>
+          <if test="xxczryGmsfhm  != null and xxczryGmsfhm  != '' " >
+              xxczry_gmsfhm,
+          </if>
+          <if test="xxczSj  != null " >
+              xxcz_sj,
+          </if>
+    </trim>
+    VALUES
+    <foreach collection="list" item="srCommonItem" index="index" separator=",">
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+              #{srCommonItem.id ,jdbcType=VARCHAR},
+                  <if test="t.xxdjdwGajgjgdm  != null  and t.xxdjdwGajgjgdm != '' " >
+                     #{srCommonItem.xxdjdwGajgjgdm ,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxdjryXm  != null  and t.xxdjryXm != '' " >
+                     #{srCommonItem.xxdjryXm ,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxdjryGmsfhm  != null  and t.xxdjryGmsfhm != '' " >
+                     #{srCommonItem.xxdjryGmsfhm ,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxdjSj != null ">
+                    #{srCommonItem.xxdjSj,jdbcType=TIMESTAMP},
+                  </if>
+                  <if test="t.xxczdwGajgjgdm  != null  and t.xxczdwGajgjgdm != '' " >
+                     #{srCommonItem.xxczdwGajgjgdm ,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxczryXm  != null  and t.xxczryXm != '' " >
+                     #{srCommonItem.xxczryXm ,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxczryGmsfhm  != null  and t.xxczryGmsfhm != '' " >
+                     #{srCommonItem.xxczryGmsfhm ,jdbcType=VARCHAR},
+                  </if>
+                  <if test="t.xxczSj != null ">
+                    #{srCommonItem.xxczSj,jdbcType=TIMESTAMP},
+                  </if>
+      </trim>
+    </foreach>
+  </insert>
+
+
+  <select id="getModel" resultMap="BaseResultMap" parameterType="java.lang.String" >
+          select 
+                 <include refid="Base_Column_List" />
+          from sr_common_item
+           where  id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getList" resultMap="BaseResultMap" parameterType="map" >
+          select
+                <include refid="Base_Column_List" />
+          from sr_common_item where 1 = 1
+        <if test="EntityRelated.id != null and EntityRelated.id != '' ">
+			and id LIKE CONCAT('%',#{EntityRelated.id,jdbcType=VARCHAR},'%')
+		</if>
+
+		<if test="EntityRelated.id != null and EntityRelated.id != '' ">
+				and id = #{EntityRelated.id,jdbcType=VARCHAR} 
+		</if>
+		<if test="EntityRelated.xxczdwGajgjgdm != null and EntityRelated.xxczdwGajgjgdm != '' ">
+ 				and  xxczdw_gajgjgdm LIKE CONCAT('%',#{EntityRelated.xxczdwGajgjgdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.xxczryGmsfhm != null and EntityRelated.xxczryGmsfhm != '' ">
+ 				and  xxczry_gmsfhm LIKE CONCAT('%',#{EntityRelated.xxczryGmsfhm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.xxczryXm != null and EntityRelated.xxczryXm != '' ">
+ 				and  xxczry_xm LIKE CONCAT('%',#{EntityRelated.xxczryXm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.xxdjdwGajgjgdm != null and EntityRelated.xxdjdwGajgjgdm != '' ">
+ 				and  xxdjdw_gajgjgdm LIKE CONCAT('%',#{EntityRelated.xxdjdwGajgjgdm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.xxdjryGmsfhm != null and EntityRelated.xxdjryGmsfhm != '' ">
+ 				and  xxdjry_gmsfhm LIKE CONCAT('%',#{EntityRelated.xxdjryGmsfhm,jdbcType=VARCHAR},'%') 
+		</if>
+		<if test="EntityRelated.xxdjryXm != null and EntityRelated.xxdjryXm != '' ">
+ 				and  xxdjry_xm LIKE CONCAT('%',#{EntityRelated.xxdjryXm,jdbcType=VARCHAR},'%') 
+		</if>
+
+
+		<if test="OrderList != null and OrderList!=null">
+			order by
+			<foreach collection="OrderList" item="Order" index="index" separator=",">
+				${Order.columnName}
+				<if test="Order.isASC">
+					ASC
+				</if>
+				<if test="!Order.isASC">
+					DESC
+				</if>
+			</foreach>
+		</if>
+  </select>
+  
+	<select id="getListBySQL" resultType="java.util.HashMap" parameterType="String">
+		<if test="value!=null and value!=''">
+			${value}
+		</if>
+	</select>
+
+  <cache />
+</mapper>
