@@ -14,7 +14,7 @@
         <start-class>com.run.app.start.Starter</start-class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <excludeFolder></excludeFolder>
-        <org.poi-version>3.14</org.poi-version>
+        <org.poi-version>4.1.2</org.poi-version>
     </properties>
     <dependencies>
         <!-- Excel -->
@@ -90,12 +90,12 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.14</version>
+            <version>4.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.14</version>
+            <version>4.1.2</version>
         </dependency>
 
         <!-- 分页插件 -->
